@@ -46,7 +46,11 @@ class PostsService {
     // PUT {{ API_URL }}/posts/:id
   }
 
-  static async deletePost(id) {}
+  static async deletePost(postID) {
+    // Token must exist.
+    // Send token in the request.
+    // DELETE {{ API_URL }}/posts/:id
+  }
 
   static async starPost(postID){}
 
