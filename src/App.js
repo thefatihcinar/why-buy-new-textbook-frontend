@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Post from './components/Post/Post';
+import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         >
           Learn React 2 development
         </a>
+        <Post/>
+        <Button variant="contained">Hello World</Button>
+        <Alert severity="error">This is an error message</Alert>
       </header>
     </div>
   );
