@@ -5,7 +5,11 @@
 */  
 class PostsService {
 
-  static async getRecommendedPosts(){}
+  static async getRecommendedPosts(){
+    // If there is token, provide token.
+    // If there is no token, send request without token.
+    // GET {{ API_URL }}/posts
+  }
   
   static async getSpecificPost(postID) {
     /* this service will fetch a post with a given id from the api */
