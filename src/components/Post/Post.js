@@ -1,9 +1,22 @@
 import React from 'react'
+import PostsService from '../../services/postsService';
+/* Components */
+import PublishingUser from '../User/PublishingUser';
 
 const Post = () => {
-    return (
-        <div>POST</div>
-    )
+  let [post, setPost] = React.useState({});
+  // post = PostsService.getPostWithId(1);
+  React.useEffect(async () => {
+    const postt = await PostsService.getPostWithId(1);
+    setPost(postt);
+  }, [post, setPost]);
+
+  return (
+      <div>
+        <div>{post.title}</div>
+        <PublishingUser/>
+      </div>
+  )
 }
 
 export default Post;
