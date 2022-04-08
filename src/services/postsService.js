@@ -39,7 +39,12 @@ class PostsService {
     // POST {{ API_URL }}/posts
   }
 
-  static async updatePost(post) {}
+  static async updatePost(postID, post) {
+    // Make validations.
+    // Token must exist.
+    // Send token in the request.
+    // PUT {{ API_URL }}/posts/:id
+  }
 
   static async deletePost(id) {}
 
