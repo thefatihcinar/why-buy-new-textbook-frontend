@@ -32,7 +32,12 @@ class PostsService {
     return response;
   }
 
-  static async createNewPost(post) {}
+  static async createNewPost(post) {
+    // Make validations.
+    // Token must exist.
+    // Send token in the request.
+    // POST {{ API_URL }}/posts
+  }
 
   static async updatePost(post) {}
 
