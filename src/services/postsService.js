@@ -58,7 +58,11 @@ class PostsService {
     // PUT {{ API_URL }}/posts/:id/star
   }
 
-  static async markPostAsSold(postID){}
+  static async markPostAsSold(postID){
+    // Token must exist.
+    // Send token in the request.
+    // PUT {{ API_URL }}/posts/:id/sold
+  }
 
 }
 
