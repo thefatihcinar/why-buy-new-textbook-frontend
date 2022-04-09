@@ -19,6 +19,11 @@ class FormsService {
     // GET {{ API_URL }}/forms/update-post
   }
   
+  static async getSearchPageData(){
+    // No token needed.
+    // GET {{ API_URL }}/forms/search
+  }
+  
 }
 
 export default FormsService;
