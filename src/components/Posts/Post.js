@@ -1,5 +1,5 @@
 import React from 'react'
-import PostsService from '../../services/postsService';
+import PostsService from '../../services/posts.service';
 /* Components */
 import PublishingUser from '../User/PublishingUser';
 
