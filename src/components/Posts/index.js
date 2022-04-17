@@ -1,2 +1,2 @@
-export { default } from './RecommendedPosts/RecommendedPosts';
-export { default} from './RecommendedPostsBanner/RecommendedPostsBanner';
+export { default as RecommendedPosts } from './RecommendedPosts/RecommendedPosts';
+export { default as RecommendedPostsBanner } from './RecommendedPostsBanner/RecommendedPostsBanner';
