@@ -1,8 +1,8 @@
 
 /*
   The Posts Service class will be responsible for all the post related stuff.
-  Post creation, Post update, Post Fetching, Post deletion, etc.
-*/  
+  Posts creation, Posts update, Posts Fetching, Posts deletion, etc.
+*/
 class PostsService {
 
   static async getRecommendedPosts(){
@@ -10,7 +10,7 @@ class PostsService {
     // If there is no token, send request without token.
     // GET {{ API_URL }}/posts
   }
-  
+
   static async getSpecificPost(postID) {
     /* this service will fetch a post with a given id from the api */
     //const response = await fetch(`${process.env.MAIN_API_URL}/posts/${id}`);

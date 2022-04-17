@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Post from './components/Post/Post';
+import Post from './components/Posts/Post';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 
