@@ -4,13 +4,13 @@
 */
 class PostsService {
 
-    static async getRecommendedPosts() {
+    async getRecommendedPosts() {
         // If there is token, provide token.
         // If there is no token, send request without token.
         // GET {{ API_URL }}/posts
     }
 
-    static async getSpecificPost(postID) {
+    async getSpecificPost(postID) {
         /* this service will fetch a post with a given id from the api */
         //const response = await fetch(`${process.env.MAIN_API_URL}/posts/${id}`);
         const response = {
@@ -31,33 +31,33 @@ class PostsService {
         return response;
     }
 
-    static async createNewPost(post) {
+    async createNewPost(post) {
         // Make validations.
         // Token must exist.
         // Send token in the request.
         // POST {{ API_URL }}/posts
     }
 
-    static async updatePost(postID, post) {
+    async updatePost(postID, post) {
         // Make validations.
         // Token must exist.
         // Send token in the request.
         // PUT {{ API_URL }}/posts/:id
     }
 
-    static async deletePost(postID) {
+    async deletePost(postID) {
         // Token must exist.
         // Send token in the request.
         // DELETE {{ API_URL }}/posts/:id
     }
 
-    static async starPost(postID) {
+    async starPost(postID) {
         // Token must exist.
         // Send token in the request.
         // PUT {{ API_URL }}/posts/:id/star
     }
 
-    static async markPostAsSold(postID) {
+    async markPostAsSold(postID) {
         // Token must exist.
         // Send token in the request.
         // PUT {{ API_URL }}/posts/:id/sold
@@ -65,4 +65,4 @@ class PostsService {
 
 }
 
-export default PostsService;
+export default new PostsService();
