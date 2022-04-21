@@ -1,3 +1,5 @@
+import { PostsBroker } from "../agents";
+
 /*
   The Posts Service class will be responsible for all the post related stuff.
   Posts creation, Posts update, Posts Fetching, Posts deletion, etc.
@@ -5,64 +7,52 @@
 class PostsService {
 
     async getRecommendedPosts() {
-        // If there is token, provide token.
-        // If there is no token, send request without token.
-        // GET {{ API_URL }}/posts
+        /* this service is responsible for getting recommended posts */
+        const recommendedPosts = await PostsBroker.get("/", {});
+        return recommendedPosts;
     }
 
     async getSpecificPost(postID) {
-        /* this service will fetch a post with a given id from the api */
-        //const response = await fetch(`${process.env.MAIN_API_URL}/posts/${id}`);
-        const response = {
-            "title": "Matematik Calculus Üniversite İngilizce Kitabı Thomas' Calculus",
-            "author": "Thomas Calculus",
-            "price": 200,
-            "isShippable": true,
-            "isAvailableForFacetoFaceSelling": true,
-            "mainImage": "https://i0.shbdn.com/photos/03/75/09/x5_1010037509vp0.jpg",
-            "description": "Üniversite İngilizce Calculus Matematik Kitabı. Mühendislik bölümlerine uygun. Yırtık veya aşınma yoktur. Temiz kullanılmıştır. Thomas Calculus, 13th Edition in SI Units, 2016 basım.",
-            "type": "Ders Kitabı",
-            "condition": "Temiz, Az Kullanılmış",
-            "images": [
-                "https://i0.shbdn.com/photos/03/75/09/x5_1010037509vp0.jpg",
-                "https://i0.shbdn.com/photos/03/75/09/x5_10100375092bn.jpg"
-            ]
-        };
-        return response;
+        /* this service will fetch a post with a given id from server */
+        const thePost = await PostsBroker.get(`/posts/${postID}`, {});
+        return thePost;
     }
 
     async createNewPost(post) {
-        // Make validations.
-        // Token must exist.
-        // Send token in the request.
-        // POST {{ API_URL }}/posts
+        /* this service creates a new post */
+        // TO-DO: Make validations.
+        const newPost = await PostsBroker.post("/", post, {});
+        return newPost;
     }
 
     async updatePost(postID, post) {
-        // Make validations.
-        // Token must exist.
-        // Send token in the request.
-        // PUT {{ API_URL }}/posts/:id
+        /* this services updates the post with a given id */
+        // TO-DO: Make validations.
+        const updatedPost = await PostsBroker.put(`/${postID}`, post, {});
+        return updatedPost;
     }
 
     async deletePost(postID) {
-        // Token must exist.
-        // Send token in the request.
-        // DELETE {{ API_URL }}/posts/:id
+        /* this service deletes the post with a given id */
+        const deletedPost = await PostsBroker.delete(`/${postID}`, {});
+        if(deletedPost) return true;
+        else return false;
     }
 
     async starPost(postID) {
-        // Token must exist.
-        // Send token in the request.
-        // PUT {{ API_URL }}/posts/:id/star
+        /* this service stars the post with a given id */
+        /* the user is known by the user since the token is sent in the request */
+        const starredPost = await PostsBroker.put(`/${postID}/star`, {}, {});
+        if(starredPost) return true;
+        else return false;
     }
 
     async markPostAsSold(postID) {
-        // Token must exist.
-        // Send token in the request.
-        // PUT {{ API_URL }}/posts/:id/sold
+        /* this service marks the post with the given id as sold */
+        const soldPost = await PostsBroker.put(`/${postID}/sold`, {}, {});
+        if(soldPost) return true;
+        else return false;
     }
-
 }
 
 export default new PostsService();
