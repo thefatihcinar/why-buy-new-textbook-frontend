@@ -1,30 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import Post from './components/Posts/Post';
-import Button from '@mui/material/Button';
-import Alert from '@mui/material/Alert';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+/* Components */
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import {PostDetails, RecommendedPosts } from "./components/Posts";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React 2 development
-        </a>
-        <Post/>
-        <Button variant="contained">Hello World</Button>
-        <Alert severity="error">This is an error message</Alert>
-      </header>
+      <Router>
+        <Header/>
+        <Routes>
+          <Route path="/" exact element={ <RecommendedPosts/> }/>
+          <Route path="/posts/:id" element={ <PostDetails/> }/>
+        </Routes>
+        <Footer/>
+      </Router>
     </div>
+
   );
 }
 
