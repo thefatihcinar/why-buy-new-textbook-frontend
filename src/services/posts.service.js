@@ -14,7 +14,7 @@ class PostsService {
 
     async getSpecificPost(postID) {
         /* this service will fetch a post with a given id from server */
-        const thePost = await PostsBroker.get(`/posts/${postID}`, {});
+        const thePost = await PostsBroker.get(`/${postID}`, {});
         return thePost;
     }
 
