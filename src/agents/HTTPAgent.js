@@ -40,27 +40,25 @@ class HTTPAgent {
     async get(path, options) {
         /* this method will perform a GET request to the server */
         const response =  await this.axios.get(path, options);
-        //console.log(path);
-        console.log(response);
-        return response.data;
+        return response;
     }
 
     async post(path, data, options) {
         /* this method will perform a POST request to the server */
         const response =  await this.axios.post(path, data, options);
-        return response.data;
+        return response;
     }
 
     async put(path, data, options) {
         /* this method will perform a PUT request to the server */
         const response =  await this.axios.put(path, data, options);
-        return response.data;
+        return response;
     }
 
     async delete(path, options) {
         /* this method will perform a DELETE request to the server */
         const response =  await this.axios.delete(path, options);
-        return response.data;
+        return response;
     }
 }
 
