@@ -15,7 +15,7 @@ const OurAims = () => {
                 Daha az ağaç kesimi.
             </Typography>
             <Typography variant="body1">
-                "Neden Yeni Ders Kitabı Alasın Ki?" sayesinde alınan kitaplar farklı nesillerce kullanılacağı için çevreye zarar vermez.
+                "Why Buy New Textbook" sayesinde alınan kitaplar farklı nesillerce kullanılacağı için yeni ağaç kesimi engellenmiş olur. Ağaçları yaşatın!
             </Typography>
             <Image src={"./illustrations/aims/save-planet.jpeg"} />
             <Typography variant="h5" color="primary" gutterBottom>
