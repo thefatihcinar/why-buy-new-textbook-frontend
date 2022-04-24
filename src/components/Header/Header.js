@@ -175,9 +175,9 @@ export default function Header() {
             >
               MUI
             </Typography>
-            <Search>
+            <Search onInput={()=>null}>
               <SearchIconWrapper>
-                <SearchIcon />
+                <SearchIcon/>
               </SearchIconWrapper>
               <StyledInputBase
                   placeholder="Search…"
