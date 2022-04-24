@@ -15,7 +15,6 @@ const HomePage = () => {
                     <RecommendedPosts/>
                 </Grid>
                 <Grid item xs={0} md={3}>
-                    <p>AMAÇLARIMIZ</p>
                     <OurAims/>
                 </Grid>
             </Grid>
