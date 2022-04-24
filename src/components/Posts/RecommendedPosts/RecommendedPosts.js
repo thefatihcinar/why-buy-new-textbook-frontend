@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect} from "react";
 /* Services */
 import PostsService from "../../../services/posts.service";
+/* Components */
+import { PostInRow } from "../PostInRow";
 
 const RecommendedPosts = () => {
 
@@ -19,11 +21,7 @@ const RecommendedPosts = () => {
         <div>
             {
                 recommendedPosts && recommendedPosts.map((post) => (
-                <>
-                    <p>{post.title}</p>
-                    <br/>
-                </>
-
+                <PostInRow key={post.id} post={post} />
             ))}
         </div>
     )
