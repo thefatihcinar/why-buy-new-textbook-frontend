@@ -8,6 +8,8 @@ import PostDetails from "./components/Posts/PostDetails";
 /* Auth Components */
 import Login from './components/Auth/Login';
 import Logout from './components/Auth/Logout';
+/* User Componentes */
+import Register from "./components/User/Register";
 /* Pages */
 import { HomePage } from './pages';
 
@@ -24,6 +26,8 @@ function App() {
           {/* Authentication Related Components */}
           <Route path="/login" element={<Login/>}/>
           <Route path="/logout" element={<Logout/>}/>
+          {/* User Related Components */}
+          <Route path="/register" element={<Register/>}/>
         </Routes>
         <Footer/>
       </Router>
