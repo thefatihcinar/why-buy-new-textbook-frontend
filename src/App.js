@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 /* Components */
 import Header from './components/Header';
 import Footer from './components/Footer';
+/* Post Components*/
 import PostDetails from "./components/Posts/PostDetails";
+import NewPost from "./components/Posts/NewPost";
 /* Auth Components */
 import Login from './components/Auth/Login';
 import Logout from './components/Auth/Logout';
@@ -22,6 +24,7 @@ function App() {
           {/* Pages */}
           <Route path="/" exact element={ <HomePage/> }/>
           {/* Post Related Components */}
+          <Route path="/new-post" element={<NewPost/>}/>
           <Route path="/posts/:id" element={ <PostDetails/> }/>
           {/* Authentication Related Components */}
           <Route path="/login" element={<Login/>}/>
