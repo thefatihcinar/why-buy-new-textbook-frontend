@@ -1,7 +1,12 @@
 import React from 'react'
 import { useState, useEffect} from "react";
+/* Material UI */
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 /* Services */
 import PostsService from "../../../services/posts.service";
+/* Components */
+import PostInRow from "../PostInRow";
 
 const RecommendedPosts = () => {
 
@@ -16,17 +21,34 @@ const RecommendedPosts = () => {
 
 
     return (
-        <div>
-            {
-                recommendedPosts && recommendedPosts.map((post) => (
-                <>
-                    <p>{post.title}</p>
-                    <br/>
-                </>
+        <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    {
+                        recommendedPosts && recommendedPosts.map((post) => (
+                            <PostInRow key={post.id} post={post} />
+                        ))}
+                </Grid>
+            </Grid>
+        </Box>
 
-            ))}
-        </div>
     )
 }
+/*
+export default function BasicGrid() {
+    return (
+        <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    {
+                        recommendedPosts && recommendedPosts.map((post) => (
+                            <PostInRow key={post.id} post={post} />
+                        ))}
+                </Grid>
+            </Grid>
+        </Box>
+    );
+}
+*/
 
 export default RecommendedPosts;
