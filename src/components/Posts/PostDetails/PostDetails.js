@@ -1,21 +1,24 @@
 import React from 'react'
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 /* Services */
 import { PostsService } from "../../../services";
 
-const PostDetails = ( { history, match } ) => {
+const PostDetails = () => {
 
     /* Use local state to store the post */
     const [post, setPost] = useState({});
 
+    const { id } = useParams();
+
     /* When the component is mounted, get the post */
     useEffect( async () => {
+
         /* get the post id from the route */
-        const { id: postID } = match.params;
-        const thePost = await PostsService.getSpecificPost(postID);
+        const thePost = await PostsService.getSpecificPost(id);
         setPost(thePost);
 
-    }, [post]);
+    }, []);
 
     return (
         <div>
