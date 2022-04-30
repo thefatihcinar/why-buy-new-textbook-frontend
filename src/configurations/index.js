@@ -9,7 +9,7 @@ class ConfigurationInjector {
     #loadConfigurationFiles(){
         /* this method will read all the configuration files and
           store them in the configurations object */
-        
+
         /* Store those keys in the configurations object */
 
         Object.keys(appConfigs).forEach(key => {
