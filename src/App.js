@@ -16,7 +16,9 @@ import Register from "./components/User/Register";
 /* Import Bootswatch */
 import './bootstrap.css'
 /* Pages */
-import { HomePage } from './pages';
+import HomePage from './pages/HomePage';
+import NotFound from "./pages/NotFound";
+import InternalServerError from "./pages/InternalServerError";
 
 function App() {
   return (
@@ -26,6 +28,10 @@ function App() {
         <Routes>
           {/* Pages */}
           <Route path="/" exact element={ <HomePage/> }/>
+          {/* Custom Pages */}
+          <Route path="/not-found" exact element={ <NotFound/> }/>
+          <Route path="/server-error" exact element={ <InternalServerError/> }/>
+          {/* Auth Pages */}
           {/* Post Related Components */}
           <Route path="/new-post" element={<NewPost/>}/>
           <Route path="/posts/:id" element={ <PostDetails/> }/>
