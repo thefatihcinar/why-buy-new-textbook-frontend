@@ -12,6 +12,9 @@ import Login from './components/Auth/Login';
 import Logout from './components/Auth/Logout';
 /* User Componentes */
 import Register from "./components/User/Register";
+/* Styling */
+/* Import Bootswatch */
+import './bootstrap.css'
 /* Pages */
 import { HomePage } from './pages';
 
