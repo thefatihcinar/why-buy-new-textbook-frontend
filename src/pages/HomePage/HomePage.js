@@ -1,15 +1,20 @@
 import React from 'react';
+/* React Bootstrap Containers */
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 /* Components */
 import { RecommendedPosts } from "../../components/Posts";
-import { OurAims } from "../../components/OurAims";
-
 
 const HomePage = () => {
     return (
-        <div>
-            <RecommendedPosts/>
-            <OurAims/>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <RecommendedPosts />
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
