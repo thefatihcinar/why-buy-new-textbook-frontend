@@ -11,6 +11,11 @@ class PostsService {
         const recommendedPosts = await PostsBroker.get("/", {});
         return recommendedPosts;
     }
+    async getRecommendedPostsForBanner() {
+        /* this service is responsible for getting recommended posts for banner */
+        const recommendedPosts = await PostsBroker.get("", { params: { place: "banner" } });
+        return recommendedPosts;
+    }
 
     async getSpecificPost(postID) {
         /* this service will fetch a post with a given id from server */
