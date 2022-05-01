@@ -19,8 +19,8 @@ const Header = () => {
               <img
                 alt=""
                 src="https://cdn1.iconfinder.com/data/icons/marketing-1-2-flat/210/cart-buy-purchase-button-cancel-512.png"
-                width="30"
-                height="30"
+                width="33"
+                height="33"
                 className="d-inline-block align-top"
               />{' '}
               {configs.getConfig('brandName')}
