@@ -31,13 +31,11 @@ const Header = () => {
               <Button variant="success">Create New Post</Button>
             </Nav>
             <Nav className="me-auto">
-
-              <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#features">Features</Nav.Link>
               {
                 authService.isAuthenticated() ?
                     <Nav.Link href="/logout">
-                      <i className="fa-solid fa-right-from-bracket"></i>
+                      <i className="fas fa-sign-out-alt p-1"></i>
                       Logout</Nav.Link> :
                     <Nav.Link href="/login">
                       <i className='fas fa-user p-1'></i>
