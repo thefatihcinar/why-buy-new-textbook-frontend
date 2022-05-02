@@ -9,8 +9,19 @@ import configs from "../../configurations";
 /* Services */
 import authService from "../../services/authentication.service";
 import {Form, FormControl} from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../actions/userActions'
 
 const Header = () => {
+  
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
+
+  const logoutHandler = () => {
+    dispatch( logout() )
+  }
 
   return (
       <header>
@@ -43,8 +54,8 @@ const Header = () => {
             <Nav className="me-auto">
               <Nav.Link href="#features">Amaçlarımız</Nav.Link>
               {
-                authService.isAuthenticated() ?
-                    <Nav.Link href="/logout">
+                userInfo ?
+                    <Nav.Link href="/logout" onClick={logoutHandler}>
                       <i className="fas fa-sign-out-alt p-1"></i>
                       Çıkış Yap</Nav.Link> :
                     <Nav.Link href="/login">
