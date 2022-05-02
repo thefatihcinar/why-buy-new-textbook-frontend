@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import configs from "../../configurations";
 /* Services */
 import authService from "../../services/authentication.service";
+import {Form, FormControl} from "react-bootstrap";
 
 const Header = () => {
 
@@ -27,6 +28,15 @@ const Header = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id='basic-navbar-nav'/>
+            <Form className="d-flex">
+              <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+              />
+              <Button variant="outline-success" onClick={() => { }}>Search</Button>
+            </Form>
             <Nav className="me-auto">
               <Button variant="success">Yeni İlan Ver</Button>
             </Nav>
