@@ -58,6 +58,12 @@ class PostsService {
         if(soldPost) return true;
         else return false;
     }
+
+    async searchForPosts(searchParams) {
+        /* this service searches for posts with a given query */
+        const searchResult = await PostsBroker.get("/search", { params: searchParams });
+        return searchResult;
+    }
 }
 
 export default new PostsService();
