@@ -12,6 +12,7 @@ import Badge from "react-bootstrap/Badge";
 import PostsService from "../../../services/posts.service";
 /* Utils */
 import { displayDate } from "../../../utilities";
+import { v4 as uuid } from 'uuid';
 /* Styles */
 import "./RecommendedPosts.css";
 
@@ -80,7 +81,7 @@ const RecommendedPosts = () => {
             <Row>
                 {   recommendedPosts &&
                     recommendedPosts.map( post => (
-                        <Col key={post._id} md={12} className="mb-2">
+                        <Col key={uuid()} md={12} className="mb-2">
                             <PostInRow key = {post._id} post = {post}/>
                         </Col>
                     ))}
