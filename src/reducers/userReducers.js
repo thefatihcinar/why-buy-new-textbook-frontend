@@ -1,4 +1,4 @@
-import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT,} from '../constants/userConstants'
+import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT} from '../constants/userConstants'
 
 export const userLoginReducer = (state = {} , action) => {
 /* this reducer controls the user login state throughout the application */
