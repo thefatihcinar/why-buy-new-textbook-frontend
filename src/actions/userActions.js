@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { USER_LOGIN_FAILURE, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from '../constants/userConstants'
+import UsersService from '../services/users.service'
 
 
 export const login = (email, password) => async(dispatch) => {
@@ -9,13 +10,7 @@ export const login = (email, password) => async(dispatch) => {
 
         dispatch( { type: USER_LOGIN_REQUEST } )
 
-        const config = {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
-
-        let { data }  = await axios.post('/api/users/login', { email: email, password: password}, config);
+        let { data }  = await UsersService.loginUser(email, password);
         
         dispatch( { type: USER_LOGIN_SUCCESS, payload: data } )
 
