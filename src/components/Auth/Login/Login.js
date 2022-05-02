@@ -1,8 +1,10 @@
 import './Login.css'
+import Message from '../../Message/Message'
+import Loader from '../../Loader/Loader'
 import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import { Row, Col, Form, Button, Container, Alert  } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import { useDispatch, useSelector} from 'react-redux'
 import { login } from '../../../actions/userActions'
@@ -15,6 +17,13 @@ const Login = ( ) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  /* Fetch whether the user has logged in or not from redux */
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo, loading, error } = userLogin;
 
   const validationSchema = yup.object({
     email: yup.string()
@@ -32,27 +41,28 @@ const Login = ( ) => {
   const { register, handleSubmit, formState: { errors } } = useForm({resolver: yupResolver(validationSchema)});
 
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    if(userInfo) {
+      navigate("/")
+    }
+  }, [userInfo])
 
 
-  const onSubmit = (values) => {
-    console.log("Values:::", values);
-    console.log( {email} );
-    console.log( {password} );
+  const onSubmit = (event) => {
 
-  };
+    dispatch(login(email, password))
 
-  const onError = (error) => {
-    console.log("ERROR:::", error);
   };
 
  
   return (
   <Container className='p-5 m-0 orangeContainer' fluid>
+    {loading && <Loader/>}
     <Row className='justify-content-md-center m-5'>
       <Card className='p-5' style={{ width: '34rem', height: '35rem' }}>
         <h1 className="mt-3 mb-3 p-4">Giriş Yap</h1>
-        <Form onSubmit={handleSubmit(onSubmit, onError)}>
+        {error && <Message variant="danger">{error}</Message>}
+        <Form onSubmit={handleSubmit(onSubmit)}>
 
           <Form.Group controlId='email'>
             <Form.Label className="p-2">E-Posta Adresi</Form.Label>
