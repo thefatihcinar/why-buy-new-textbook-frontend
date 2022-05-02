@@ -28,18 +28,18 @@ const Header = () => {
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id='basic-navbar-nav'/>
             <Nav className="me-auto">
-              <Button variant="success">Create New Post</Button>
+              <Button variant="success">Yeni İlan Ver</Button>
             </Nav>
             <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="#features">Amaçlarımız</Nav.Link>
               {
                 authService.isAuthenticated() ?
                     <Nav.Link href="/logout">
                       <i className="fas fa-sign-out-alt p-1"></i>
-                      Logout</Nav.Link> :
+                      Çıkış Yap</Nav.Link> :
                     <Nav.Link href="/login">
                       <i className='fas fa-user p-1'></i>
-                      Log In
+                      Giriş Yap
                     </Nav.Link>
               }
             </Nav>
