@@ -10,7 +10,7 @@ export const login = (email, password) => async(dispatch) => {
 
         dispatch( { type: USER_LOGIN_REQUEST } )
 
-        let { data }  = await UsersService.loginUser(email, password);
+        let data  = await UsersService.loginUser(email, password);
         
         dispatch( { type: USER_LOGIN_SUCCESS, payload: data } )
 
