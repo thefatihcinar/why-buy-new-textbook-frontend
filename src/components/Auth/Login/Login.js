@@ -94,7 +94,7 @@ const Login = ( ) => {
 
         <Row className='py-5'>
           <Col>
-            Hesabın yok mu? <Link to={`/`}> Kaydol</Link>
+            Hesabın yok mu? <Link to={`/register`}> Kaydol</Link>
           </Col>
         </Row>
         
