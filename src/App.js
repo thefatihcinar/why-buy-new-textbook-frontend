@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 /* Post Components*/
 import PostDetails from "./components/Posts/PostDetails";
 import NewPost from "./components/Posts/NewPost";
+import SearchPosts from "./components/Posts/SearchPosts";
 /* Auth Components */
 import Login from './components/Auth/Login';
 import Logout from './components/Auth/Logout';
@@ -35,6 +36,7 @@ function App() {
           {/* Post Related Components */}
           <Route path="/new-post" element={<NewPost/>}/>
           <Route path="/posts/:id" element={ <PostDetails/> }/>
+          <Route path="/search" element={<SearchPosts/>}></Route>
           {/* Authentication Related Components */}
           <Route path="/login" element={<Login/>}/>
           <Route path="/logout" element={<Logout/>}/>
