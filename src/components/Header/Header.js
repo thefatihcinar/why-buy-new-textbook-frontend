@@ -65,7 +65,9 @@ const Header = () => {
               <Button variant="primary" onClick={(e) => { if(searchQuery) navigate(`/search?query=${searchQuery}`); else navigate(`/search`) }}><i className="fas fa-search"></i></Button>
             </Form>
             <Nav className="me-3">
-              <Button variant="primary">Yeni İlan Ver</Button>
+              <LinkContainer to="/new-post">
+                <Button variant="primary">Yeni İlan Ver</Button>
+              </LinkContainer>
             </Nav>
             <Nav className="me-3">
               <LinkContainer to="our-aims">
