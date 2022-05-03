@@ -45,6 +45,8 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           {/* General Components */}
           <Route path="/our-aims" element={<OurAims/>}/>
+          {/* Default */}
+          <Route path="*" element={ <NotFound/> }/>
         </Routes>
         <Footer/>
       </Router>
