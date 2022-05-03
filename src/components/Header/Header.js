@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../actions/userActions'
 import {Link, useNavigate} from "react-router-dom";
 import { useEffect } from "react";
+import {LinkContainer} from "react-router-bootstrap";
 
 const Header = () => {
 
@@ -67,7 +68,10 @@ const Header = () => {
               <Button variant="primary">Yeni İlan Ver</Button>
             </Nav>
             <Nav className="me-3">
-              <Nav.Link href="#features">Amaçlarımız</Nav.Link>
+              <LinkContainer to="our-aims">
+                <Nav.Link>Amaçlarımız</Nav.Link>
+              </LinkContainer>
+
               {
                 userInfo ?
                     <Nav.Link href="/logout" onClick={logoutHandler}>
