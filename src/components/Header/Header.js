@@ -6,13 +6,21 @@ import Container from 'react-bootstrap/Container'
 import Button from "react-bootstrap/Button";
 /* Configurations */
 import configs from "../../configurations";
-/* Services */
-import authService from "../../services/authentication.service";
 import {Form, FormControl} from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../actions/userActions'
+import {Link, useNavigate} from "react-router-dom";
+import { useEffect } from "react";
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
+  /* use local state to store the search query */
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  useEffect(() => {
+  }, [searchQuery]);
 
   const dispatch = useDispatch();
 
@@ -39,14 +47,15 @@ const Header = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id='basic-navbar-nav'/>
-            <Form className="d-flex">
+            <Form className="d-flex me-5">
               <FormControl
-                  type="search"
-                  placeholder="Search"
+                  placeholder="Arama"
                   className="me-2"
                   aria-label="Search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <Button variant="outline-success" onClick={() => { }}>Search</Button>
+              <Button variant="primary" onClick={(e) => { if(searchQuery) navigate(`/search?query=${searchQuery}`); else navigate(`/search`) }}><i className="fas fa-search"></i></Button>
             </Form>
             <Nav className="me-auto">
               <Button variant="primary">Yeni İlan Ver</Button>
