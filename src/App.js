@@ -20,6 +20,7 @@ import './bootstrap.css'
 import HomePage from './pages/HomePage';
 import NotFound from "./pages/NotFound";
 import InternalServerError from "./pages/InternalServerError";
+import {OurAims} from "./components/OurAims";
 
 function App() {
   return (
@@ -42,6 +43,8 @@ function App() {
           <Route path="/logout" element={<Logout/>}/>
           {/* User Related Components */}
           <Route path="/register" element={<Register/>}/>
+          {/* General Components */}
+          <Route path="/our-aims" element={<OurAims/>}/>
         </Routes>
         <Footer/>
       </Router>
