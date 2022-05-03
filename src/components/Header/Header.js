@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../actions/userActions'
 
 const Header = () => {
-  
+
   const dispatch = useDispatch();
 
   const userLogin = useSelector(state => state.userLogin)
@@ -49,7 +49,7 @@ const Header = () => {
               <Button variant="outline-success" onClick={() => { }}>Search</Button>
             </Form>
             <Nav className="me-auto">
-              <Button variant="success">Yeni İlan Ver</Button>
+              <Button variant="primary">Yeni İlan Ver</Button>
             </Nav>
             <Nav className="me-auto">
               <Nav.Link href="#features">Amaçlarımız</Nav.Link>
