@@ -36,16 +36,18 @@ const Header = () => {
       <header>
         <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
           <Container>
-            <Navbar.Brand href="/">
-              <img
-                alt=""
-                src="https://cdn1.iconfinder.com/data/icons/marketing-1-2-flat/210/cart-buy-purchase-button-cancel-512.png"
-                width="33"
-                height="33"
-                className="d-inline-block align-top"
-              />{' '}
-              {configs.getConfig('brandName')}
-            </Navbar.Brand>
+            <LinkContainer to="/">
+              <Navbar.Brand>
+                <img
+                  alt=""
+                  src="https://cdn1.iconfinder.com/data/icons/marketing-1-2-flat/210/cart-buy-purchase-button-cancel-512.png"
+                  width="33"
+                  height="33"
+                  className="d-inline-block align-top"
+                />{' '}
+                {configs.getConfig('brandName')}
+              </Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls='basic-navbar-nav'/>
             <Navbar.Collapse id='basic-navbar-nav'/>
             <Form className="d-flex me-5">
