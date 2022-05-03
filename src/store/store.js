@@ -3,11 +3,12 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 /* Import Reducers */
-import { userLoginReducer } from '../reducers/userReducers'
+import { userLoginReducer, userRegisterReducer } from '../reducers/userReducers'
 
 
 let reducers = combineReducers({
     userLogin: userLoginReducer,
+    userRegister: userRegisterReducer,
 });
 
 
