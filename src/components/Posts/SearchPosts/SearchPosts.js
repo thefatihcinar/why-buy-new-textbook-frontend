@@ -96,8 +96,6 @@ const SearchPosts = () => {
         const searchResults = await PostsService.searchForPosts(searchParameters);
         setPosts(searchResults);
 
-        console.log(searchParameters);
-
     }, [relatedCity, relatedInstitution, searchParameters]);
 
 
