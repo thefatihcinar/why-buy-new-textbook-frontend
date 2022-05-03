@@ -53,6 +53,12 @@ const Header = () => {
                   className="me-2"
                   aria-label="Search"
                   value={searchQuery}
+                  onKeyDown={(event) => {
+                    if (event.key == "Enter") {
+                      event.preventDefault();
+                      navigate(`/search?query=${searchQuery}`)
+                    }
+                  }}
                   onChange={(e) => setSearchQuery(e.target.value)}
               />
               <Button variant="primary" onClick={(e) => { if(searchQuery) navigate(`/search?query=${searchQuery}`); else navigate(`/search`) }}><i className="fas fa-search"></i></Button>
