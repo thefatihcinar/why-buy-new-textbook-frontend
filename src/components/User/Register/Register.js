@@ -79,7 +79,7 @@ const Register = ( { location, history } ) => {
               <Form.Group controlId='name'>
                 <Form.Label className="p-2">Ad Soyad</Form.Label>
                 <Form.Control type="text"
-                              name="email"
+                              name="name"
                               placeholder="İsim Soyisim"
                               value={name}
                               {...register("name")}
