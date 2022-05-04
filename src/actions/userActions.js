@@ -34,6 +34,7 @@ export const logout = () => (dispatch) => {
     /* this action creator logs a user out
        it removes the token from local storage */
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('authToken');
 
     dispatch( { type: USER_LOGOUT} )
 }
