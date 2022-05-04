@@ -137,6 +137,7 @@ const PostDetails = () => {
                                         </Badge>
 
                                     }
+                                    <div></div>
                                     {
                                         post.isAvailableForFacetoFaceSelling &&
 
