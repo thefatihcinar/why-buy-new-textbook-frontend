@@ -17,8 +17,14 @@ import { PostsService, AuthenticationService } from "../../../services";
 import { displayDate, displayPhoneNumber } from "../../../utilities";
 /* Components */
 import RecommendedPostsBanner from "../RecommendedPostsBanner";
+import {useDispatch, useSelector} from "react-redux";
 
 const PostDetails = () => {
+
+    const dispatch = useDispatch();
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
 
     /* Initialize navigation hook */
     const navigate = useNavigate();
@@ -218,7 +224,7 @@ const PostDetails = () => {
                             </Col>
                         </Row>
                         {
-                            AuthenticationService.isAuthenticated() &&
+                            userInfo &&
                             <Row className="mt-5 mb-5">
                                 <Col md={12} className="text-start">
                                     {/* Recommended Posts */}
