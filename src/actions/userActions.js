@@ -38,7 +38,7 @@ export const logout = () => (dispatch) => {
     dispatch( { type: USER_LOGOUT} )
 }
 
-export const register = (name, email, password) => async(dispatch) => {
+export const userRegisterAction = (name, email, password, phoneNumber, profilePicture) => async(dispatch) => {
     /* this action creator is responsible for registering a user
         in this application, after having registered, it logs in the user
         by firing the login action as well */
@@ -46,7 +46,15 @@ export const register = (name, email, password) => async(dispatch) => {
 
         dispatch( { type: USER_REGISTER_REQUEST } );
 
-        let data  = await UsersService.registerUser(name, email, password);
+        let newUser = {
+            name: name,
+            email: email,
+            profilePicture: profilePicture,
+            password: password,
+            phoneNumber: phoneNumber,
+        }; 
+
+        let data  = await UsersService.registerUser(newUser);
 
         dispatch( { type: USER_REGISTER_SUCCESS, payload: data } );
 
