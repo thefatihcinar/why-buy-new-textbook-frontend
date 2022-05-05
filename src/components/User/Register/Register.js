@@ -45,7 +45,10 @@ const Register = ( ) => {
                     .max(50, "Şifreniz En Fazla 50 Karakterden Oluşmalıdır."),
 
         confirmPassword: yup.string()
-                 .required("Ad Soyad Girilmesi Zorunludur."),
+                    .required("Şifre Girilmesi Zorunludur.")
+                    .min(6, "Şifreniz En Az 6 Karakterden Oluşmalıdır.")
+                    .max(50, "Şifreniz En Fazla 50 Karakterden Oluşmalıdır.")
+                    .oneOf([yup.ref("password")], "Şifreler Eşleşmiyor."),
 
         phoneNumber: yup.string()
                  .required("Ad Soyad Girilmesi Zorunludur."),
