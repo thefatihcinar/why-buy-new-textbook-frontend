@@ -159,7 +159,7 @@ const Register = ( ) => {
 
               <Form.Group controlId='phoneNumber'>
               <Form.Label className="p-2">Telefon Numarası</Form.Label>
-                <Form.Control type="phoneNumber"
+                <Form.Control type="number"
                               name="phoneNumber"
                               placeholder="05xxyyyzzzz"
                               value={phoneNumber}
