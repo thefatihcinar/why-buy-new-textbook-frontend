@@ -176,7 +176,7 @@ const Register = ( ) => {
               <Form.Label className="p-2">Profil Fotoğrafınız İçin URL Girin</Form.Label>
                 <Form.Control type="profilePicture"
                               name="profilePicture"
-                              placeholder="05xxyyyzzzz"
+                              placeholder="https://www.some-image-URL.png"
                               value={profilePicture}
                               {...register("profilePicture")}
                               onChange={(e) => (setProfilePicture(e.target.value))}
