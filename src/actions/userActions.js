@@ -64,8 +64,8 @@ export const userRegisterAction = (name, email, password, phoneNumber, profilePi
 
         dispatch( { type: USER_LOGIN_SUCCESS, payload: data } )
 
-        // again add the logged in user to the local storage
         localStorage.setItem('userInfo', JSON.stringify(data));
+        localStorage.setItem('authToken', data.token);
 
     } catch (error) {
 
