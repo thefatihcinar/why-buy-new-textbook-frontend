@@ -50,11 +50,14 @@ const Register = ( ) => {
                     .max(50, "Şifreniz En Fazla 50 Karakterden Oluşmalıdır.")
                     .oneOf([yup.ref("password")], "Şifreler Eşleşmiyor."),
 
-        phoneNumber: yup.string()
-                 .required("Ad Soyad Girilmesi Zorunludur."),
+        phoneNumber: yup.number()
+                    .typeError("Telefon Numarası Sayı İçermelidir.")
+                    .required("Telefon Numarası Girilmesi Zorunludur.")
+                    .test('len', "Telefon Numaranız 11 Haneli Olmalıdır.", val => val.toString().length === 10),
 
         profilePicture: yup.string()
-                 .required("Ad Soyad Girilmesi Zorunludur."),
+                    .required('Lütfen Bir Fotoğraf Linki Giriniz.'),
+
       }).required();
     
       const { register, handleSubmit, formState: { errors } } = useForm({resolver: yupResolver(validationSchema)});
@@ -159,7 +162,7 @@ const Register = ( ) => {
 
               <Form.Group controlId='phoneNumber'>
               <Form.Label className="p-2">Telefon Numarası</Form.Label>
-                <Form.Control type="number"
+                <Form.Control type="tel"
                               name="phoneNumber"
                               placeholder="05xxyyyzzzz"
                               value={phoneNumber}
