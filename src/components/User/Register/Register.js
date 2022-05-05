@@ -177,7 +177,7 @@ const Register = ( ) => {
 
               <Form.Group controlId='profilePicture'>
               <Form.Label className="p-2">Profil Fotoğrafınız İçin URL Girin</Form.Label>
-                <Form.Control type="profilePicture"
+                <Form.Control type="url"
                               name="profilePicture"
                               placeholder="https://www.some-image-URL.png"
                               value={profilePicture}
