@@ -7,28 +7,30 @@ import { Row, Col, Form, Button, Container, Alert  } from 'react-bootstrap'
 import { Link, useNavigate} from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import { useDispatch, useSelector} from 'react-redux'
-import { register } from '../../../actions/userActions'
+import { userRegisterAction } from '../../../actions/userActions'
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 
-const Register = ( { location, history } ) => {
+const Register = ( ) => {
 
-    let [name, setName] = useState("");
-    let [email, setEmail] = useState("");
-    let [password, setPassword] = useState("");
-    let [confirmPassword, setConfirmPassword] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [profilePicture, setProfilePicture] = useState("");
+
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const userLogin = useSelector( state => state.userLogin );
+    const { userInfo: loggedInUser} = userLogin;
     
-    /* go get learn whether there is an authenticated user or not */
-    let userLogin = useSelector( state => state.userLogin );
-    let { userInfo: loggedInUser} = userLogin;
-    
-    /* also fetch the user register global state */
-    let { loading, userInfo , error } = useSelector(state => state.userRegister);
+    const userRegister = useSelector( state => state.userRegister );
+    const { loading, userInfo , error } = userRegister;
 
     const validationSchema = yup.object({
         name: yup.string()
@@ -44,6 +46,15 @@ const Register = ( { location, history } ) => {
                     .required("Şifre Girilmesi Zorunludur.")
                     .min(6, "Şifreniz En Az 6 Karakterden Oluşmalıdır.")
                     .max(50, "Şifreniz En Fazla 50 Karakterden Oluşmalıdır."),
+
+        confirmPassword: yup.string()
+                 .required("Ad Soyad Girilmesi Zorunludur."),
+
+        phoneNumber: yup.string()
+                 .required("Ad Soyad Girilmesi Zorunludur."),
+
+        profilePicture: yup.string()
+                 .required("Ad Soyad Girilmesi Zorunludur."),
       }).required();
     
       const { register, handleSubmit, formState: { errors } } = useForm({resolver: yupResolver(validationSchema)});
@@ -57,21 +68,21 @@ const Register = ( { location, history } ) => {
         if(loggedInUser)
             history.push("/"); */
 
-    }, [userInfo, loggedInUser]);
+    }, [userInfo]);
 
 
     const onSubmit = (event) => {
 
-        dispatch( register(name, email, password) )
+        dispatch(userRegisterAction(name, email, password, phoneNumber, profilePicture));
     
-      };
+    };
 
 
     return (
     <Container className='p-5 m-0 orangeContainer' fluid>
         {loading && <Loader/>}
         <Row className='justify-content-md-center m-5'>
-          <Card className='p-5' style={{ width: '34rem', height: '35rem' }}>
+          <Card className='p-5' style={{ width: '34rem', height: '57rem' }}>
             <h1 className="mt-3 mb-3 p-4">Kaydol</h1>
             {error && <Message variant="danger">{error}</Message>}
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -108,6 +119,78 @@ const Register = ( { location, history } ) => {
                 {errors.email && (
                   <Form.Text className="text-danger">
                     {errors.email.message}
+                  </Form.Text>
+                )}
+              </Form.Group>
+
+              <Form.Group controlId='password'>
+              <Form.Label className="p-2">Şifre</Form.Label>
+                <Form.Control type="password"
+                              name="password"
+                              placeholder="********"
+                              value={password}
+                              {...register("password")}
+                              onChange={(e) => (setPassword(e.target.value))}
+                              >
+                </Form.Control>
+    
+                {errors.password && (
+                  <Form.Text className="text-danger">
+                    {errors.password.message}
+                  </Form.Text>
+                )}
+              </Form.Group>
+
+              <Form.Group controlId='confirmPassword'>
+              <Form.Label className="p-2">Şifrenizi Tekrar Girin</Form.Label>
+                <Form.Control type="password"
+                              name="confirmPassword"
+                              placeholder="********"
+                              value={confirmPassword}
+                              {...register("confirmPassword")}
+                              onChange={(e) => (setConfirmPassword(e.target.value))}
+                              >
+                </Form.Control>
+    
+                {errors.confirmPassword && (
+                  <Form.Text className="text-danger">
+                    {errors.confirmPassword.message}
+                  </Form.Text>
+                )}
+              </Form.Group>
+
+              <Form.Group controlId='phoneNumber'>
+              <Form.Label className="p-2">Telefon Numarası</Form.Label>
+                <Form.Control type="phoneNumber"
+                              name="phoneNumber"
+                              placeholder="05xxyyyzzzz"
+                              value={phoneNumber}
+                              {...register("phoneNumber")}
+                              onChange={(e) => (setPhoneNumber(e.target.value))}
+                              >
+                </Form.Control>
+    
+                {errors.phoneNumber && (
+                  <Form.Text className="text-danger">
+                    {errors.phoneNumber.message}
+                  </Form.Text>
+                )}
+              </Form.Group>
+
+              <Form.Group controlId='profilePicture'>
+              <Form.Label className="p-2">Profil Fotoğrafınız İçin URL Girin</Form.Label>
+                <Form.Control type="profilePicture"
+                              name="profilePicture"
+                              placeholder="05xxyyyzzzz"
+                              value={profilePicture}
+                              {...register("profilePicture")}
+                              onChange={(e) => (setProfilePicture(e.target.value))}
+                              >
+                </Form.Control>
+    
+                {errors.profilePicture && (
+                  <Form.Text className="text-danger">
+                    {errors.profilePicture.message}
                   </Form.Text>
                 )}
               </Form.Group>
