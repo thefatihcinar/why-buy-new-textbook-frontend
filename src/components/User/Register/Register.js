@@ -25,9 +25,6 @@ const Register = ( ) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const userLogin = useSelector( state => state.userLogin );
-    const { userInfo: loggedInUser} = userLogin;
     
     const userRegister = useSelector( state => state.userRegister );
     const { loading, userInfo , error } = userRegister;
@@ -61,13 +58,11 @@ const Register = ( ) => {
     
 
     useEffect( () => {
-        /* if there is an authenticated user, 
-           redirect him to the where he wants to go */
-/*         if(userInfo)
-            history.push(redirect);
-        if(loggedInUser)
-            history.push("/"); */
-
+      /*if there is an authenticated user, 
+      redirect him to the where he wants to go */
+      if(userInfo) {
+        navigate("/")
+      }
     }, [userInfo]);
 
 
